@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect,useState } from 'react';
 import './home.css'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,22 @@ import Header from '../components/Header';
 
 
 function Home() {
+
+  const [logStatus,setLogStatus] = useState(false)
+
+
+  useEffect(()=>{
+    if(sessionStorage.getItem('token')){
+      setLogStatus(true)
+    }
+    else{
+      setLogStatus(false)
+    }
+  },[])
+
+
+
+
   return (
     <>
     <Header/>
@@ -30,7 +47,12 @@ function Home() {
             <p>A doctor's appointment booking site allows patients to easily schedule appointments with healthcare providers. It features a user-friendly interface where patients can search for doctors by specialty, location, and availability, view detailed doctor profiles, and book appointments online. The platform also includes
               appointment reminders, patient reviews, and secure management of medical information.
             </p>
-            <Link className='btn btn-warning w-50 border rounded' to={'/auth'}>Get Started</Link>
+            {
+              logStatus ?
+              <Link className='btn w-50 border rounded' style={{background:'black',color:'yellow'}} to={'/department'}>View Department</Link>
+              :
+              <Link className='btn btn-warning w-50 border border-1 border-success rounded' to={'/auth'}>Get Started</Link>
+            }
           </div>
         </div>
       </div>
