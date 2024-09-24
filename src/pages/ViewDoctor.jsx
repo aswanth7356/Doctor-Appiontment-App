@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
+import Footer from '../components/Footer';
 
 
 function ViewDoctor() {
@@ -40,6 +41,8 @@ function ViewDoctor() {
           </div>
         </div>
       </div>
+
+      <Footer/>
     </>
   )
 }

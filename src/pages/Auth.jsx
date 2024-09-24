@@ -78,7 +78,7 @@ function Auth() {
       <div style={{ background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)' }}>
 
         <div className='w-100 d-flex justify-content-center align-items-center' style={{ height: '100%' }}>
-          <div className='row w-50 rounded shadow ' style={{ marginTop: '160px', marginBottom: '160px' }}>
+          <div className='row w-50 rounded shadow ' style={{ marginTop: '160px', marginBottom: '213px' }}>
 
             <div className="col-md-6">
               <img src="https://png.pngtree.com/png-vector/20230429/ourlarge/pngtree-free-vector-login-concept-illustration-png-image_6743219.png" className='img-fluid' alt="" />

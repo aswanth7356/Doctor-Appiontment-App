@@ -4,6 +4,7 @@ import './home.css'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 function Home() {
@@ -28,6 +29,7 @@ function Home() {
     <Header/>
 
 
+      
       <div className='container'>
         <div className="row d-flex justify-content-center text-align-center " >
           <h1 className='first-head text-white text-center' style={{ marginTop: '5rem' }}>BOOK AND MEET A DOCTOR</h1>
@@ -98,6 +100,11 @@ function Home() {
           </div>
         </div>
       </div>
+
+
+      <Footer/>
+
+      
 
     
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 function Department() {
     return (
@@ -50,6 +51,8 @@ function Department() {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     )
 }

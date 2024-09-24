@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Footer from '../components/Footer';
 
 function Appointment() {
     return (
@@ -59,6 +60,8 @@ function Appointment() {
                 </div>
 
             </div>
+
+            <Footer/>
         </>
     )
 }

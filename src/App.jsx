@@ -10,6 +10,7 @@ import './bootstrap.min.css'
 import Auth from './pages/Auth'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Admin from './AdminPanel/Admin'
 
 
 function App() {
@@ -24,8 +25,8 @@ function App() {
         <Route path='/auth' element={<Auth />} />
         <Route path='/department' element={<Department />} />
         <Route path='/appointment' element={<Appointment />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
-      <Footer />
       <ToastContainer />
     </>
   )
