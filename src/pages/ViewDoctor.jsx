@@ -28,7 +28,7 @@ function ViewDoctor() {
                   <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg" className='img-fluid' />
                   <Card.Body>
                     <Card.Title>Name : Anu</Card.Title>
-                    <Card.Text className='mt-3'>Department : Dentist</Card.Text>
+                    <Card.Text className='mt-3'>Foeld : Mbbs</Card.Text>
                     <Card.Text>Location : Kochi</Card.Text>
                     <Card.Text>Consulting Time : 1pm to 3pm</Card.Text>
                     <Link to={'/appointment'} className='btn btn-warning border rounded'>Book An Appointment</Link>

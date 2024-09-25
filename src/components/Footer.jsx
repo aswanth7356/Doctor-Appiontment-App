@@ -36,9 +36,9 @@ function Footer() {
             <p><Link to={'/auth'} className='text-light'>LOGIN</Link></p>
             {
               logStatus ?
-                <Link className='btn border rounded text-light' style={{ background: 'linear-gradient(218deg, rgba(94,101,170,1) 0%, rgba(254,1,1,1) 99%, rgba(255,0,0,0.3478641456582633) 100%)' }} to={'/admin'}>Admin Panel</Link>
+                <Link className='btn border rounded text-light mb-3' style={{ background: 'linear-gradient(218deg, rgba(94,101,170,1) 0%, rgba(254,1,1,1) 99%, rgba(255,0,0,0.3478641456582633) 100%)' }} to={'/admin'}>Admin Panel</Link>
                 :
-                <Link className='btn border rounded btn-danger' to={'/auth'}>Admin Panel</Link>
+                <Link className='btn border rounded btn-danger mb-3' to={'/auth'}>Admin Panel</Link>
             }
           </div>
 

@@ -13,3 +13,9 @@ export const LoginApi=async(data)=>{
     return await commonApi("POST",`${base_url}/log`,data,"")
 }
 
+
+
+export const addDoctorApi=async(data,header)=>{
+    return await commonApi("POST",`${base_url}/addDoctor`,data,header)
+}
+
