@@ -19,3 +19,6 @@ export const addDoctorApi=async(data,header)=>{
     return await commonApi("POST",`${base_url}/addDoctor`,data,header)
 }
 
+export const getUserDoctorApi=async(header)=>{
+    return await commonApi("GET",`${base_url}/viewDoctor`,"",header)
+}
