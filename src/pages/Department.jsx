@@ -8,7 +8,7 @@ function Department() {
         <>
             <div>
                 <div className='container mt-5 mb-5' style={{ height: '100%' }}>
-                    <div className="row d-flex justify-content-center border shadow p-5" style={{ background: 'linear-gradient(68deg, rgba(238,174,202,1) 0%, rgba(123,32,32,1) 100%)' }}>
+                    <div className="row d-flex justify-content-center border shadow p-5" style={{ background: 'radial-gradient(circle, rgba(188,188,194,1) 0%, rgba(254,1,180,1) 99%, rgba(255,0,0,0.3478641456582633) 100%)' }}>
                         <h3 className='text-center text-white mb-5'>DEPARTMENT</h3>
 
                         <div className="col-md-4">
