@@ -30,3 +30,8 @@ export const deleteDoctorApi=async(id,header)=>{
 export const updateDoctorApi=async(id,data,header)=>{
     return await commonApi("PUT",`${base_url}/updateDoctor/${id}`,data,header)
 }
+
+
+export const BookingApi=async(data)=>{
+    return await commonApi("POST",`${base_url}/viewBooking`,data,"")
+}

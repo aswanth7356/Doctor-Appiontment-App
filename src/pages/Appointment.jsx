@@ -1,9 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Footer from '../components/Footer';
+import { toast } from 'react-toastify';
+import { BookingApi } from '../services/allApis';
+import { useNavigate } from 'react-router-dom';
+
 
 function Appointment() {
+
+    const [bookingData,setBookingData] = useState({
+        firstName:"",lastName:"",email:"",phone:"",place:"",date:""
+    })
+
+    console.log(bookingData);
+
+    const navigate=useNavigate()
+    
+
+    const handleSubmit=async()=>{
+        const {firstName,lastName,email,phone,place,date}=bookingData
+        if(!firstName || !lastName || !email || !phone || !place || !date){
+            toast.warning("Please Fill Valid data...")
+        }
+        else{
+            const result=await BookingApi(bookingData)
+            console.log(result);
+            if(result.status==201){
+                toast.success("Successfully Booked!!")
+                setBookingData({
+                    firstName:"",lastName:"",email:"",phone:"",place:"",date:""
+                })
+                navigate('/')
+            }
+            else{
+                toast.error("User Already Booked This date!!")
+            }
+        }
+    }
+
+
     return (
         <>
 
@@ -24,35 +60,36 @@ function Appointment() {
                             <Form>
                                 <div className='row'>
                                     <Form.Group className="mb-3 w-50" controlId="formBasicFname">
-                                        <Form.Control type="text" placeholder="First Name" />
+                                        <Form.Control type="text" placeholder="First Name" onChange={(e)=>{setBookingData({...bookingData,firstName:e.target.value})}} />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 w-50" controlId="formLname">
-                                        <Form.Control type="text" placeholder="Last Name" />
+                                        <Form.Control type="text" placeholder="Last Name" onChange={(e)=>{setBookingData({...bookingData,lastName:e.target.value})}}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 w-50" controlId="formBasicEmail">
-                                        <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setBookingData({...bookingData,email:e.target.value})}}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 w-50" controlId="formNumber">
-                                        <Form.Control type="number" placeholder="Enter Pnone No" />
+                                        <Form.Control type="number" placeholder="Enter Pnone No"  onChange={(e)=>{setBookingData({...bookingData,phone:e.target.value})}}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 w-50" controlId="formPlace">
-                                        <Form.Control type="text" placeholder="Place" />
+                                        <Form.Control type="text" placeholder="Place" onChange={(e)=>{setBookingData({...bookingData,place:e.target.value})}}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 w-50" controlId="formDate">
-                                        <Form.Control type="date" placeholder="" />
+                                        <Form.Control type="date" placeholder=""  onChange={(e)=>{setBookingData({...bookingData,date:e.target.value})}}/>
                                     </Form.Group>
                                 </div>
 
                                 <div className='text-center mt-3'>
-                                    <Button type="submit" className='btn btn-primary border rounded w-50'>
+                                    <Button className='btn btn-primary border rounded w-50' onClick={handleSubmit}>
                                         Submit
                                     </Button>
                                 </div>
+                                
 
                             </Form>
                         </div>
