@@ -26,3 +26,7 @@ export const getUserDoctorApi=async(header)=>{
 export const deleteDoctorApi=async(id,header)=>{
     return await commonApi("DELETE",`${base_url}/deleteDoctor/${id}`,{},header)
 }
+
+export const updateDoctorApi=async(id,data,header)=>{
+    return await commonApi("PUT",`${base_url}/updateDoctor/${id}`,data,header)
+}

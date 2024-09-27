@@ -86,8 +86,8 @@ function AddDoctor() {
 
         <div className="row container-fluid" style={{ height: '100%' }}>
           <div className="col d-flex justify-content-center align-items-center" style={{ marginTop: '120px', marginBottom: '120px' }}>
-            <div className='border p-5 shadow bg-dark rounded d-flex flex-column'>
-              <h3 className='text-center text-light '>ADD DOCTOR</h3>
+            <div className='border p-5 shadow border-3 border-dark rounded d-flex flex-column'>
+              <h3 className='text-center text-dark '>ADD DOCTOR</h3>
               <div className='mt-3'>
 
                 <div className="row">
@@ -97,7 +97,7 @@ function AddDoctor() {
                       <img src={preview ? preview : "https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/256/Image-icon.png"} className='img-fluid' alt="" style={{ cursor: 'pointer' }} />
                       {
                         !imgStatus &&
-                        <p className='text-primary p-3'>Invalid file type... Image file must be png | jpg | jpeg</p>
+                        <p className='text-danger p-3'>Invalid file type... Image file must be png | jpg | jpeg</p>
                       }
                     </label>
                   </div>

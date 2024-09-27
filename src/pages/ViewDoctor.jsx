@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext} from 'react'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import Footer from '../components/Footer';
 import { deleteDoctorApi, getUserDoctorApi } from '../services/allApis';
 import base_url from '../services/base_url';
 import { toast } from 'react-toastify';
+import EditDoctor from '../components/EditDoctor';
+import { editResponseContext } from '../contextApi/ContextShare';
 
 
 function ViewDoctor() {
 
   const [userDoctor, setUserDoctor] = useState([])
+  const [editResponse,setEditResponse]=useContext(editResponseContext)  
 
   useEffect(() => {
     if (sessionStorage.getItem('token')) {
       getData()
     }
-  }, [])
+  }, [editResponse])
 
 
   const getData = async () => {
@@ -41,7 +44,7 @@ function ViewDoctor() {
     }
     const result = await deleteDoctorApi(id, header)
     if(result.status==200){
-      alert("Are You Sure To Delete!!")
+      alert("Are You Sure Want To Delete!!")
       toast.success("Doctor Deleted!!")
       getData()
     }
@@ -54,18 +57,18 @@ function ViewDoctor() {
 
   return (
     <>
-      <div style={{ background: 'radial-gradient(circle, rgba(188,188,194,1) 0%, rgba(254,1,180,1) 99%, rgba(255,0,0,0.3478641456582633) 100%)' }}>
+      <div style={{ background: 'linear-gradient(90deg, #d53369 0%, #daae51 100%)' }}>
 
         <div className="container-fluid row p-5" style={{ height: '100%' }}>
           <div className="col">
             <h1 className='text-white'>AVAILABLE DOCTORS</h1>
 
-            <div className="mt-4 d-flex justify-content-between">
+            {/* <div className="mt-4 d-flex justify-content-between">
               <div className="d-flex">
 
               </div>
               <Link className="btn btn-success" to={'/addDoctor'}> + Add Doctors</Link>
-            </div>
+            </div> */}
 
 
             <div>
@@ -97,7 +100,7 @@ function ViewDoctor() {
                           <Card style={{ width: '18rem' }} className='border border-3 border-light shadow bg-light rounded'>
                             <Card.Img variant="top" src={`${base_url}/upload/${item.picture}`} className='img-fluid' style={{ height: '30vh' }} />
                             <Card.Body>
-                              <Card.Title>Name : {item.name}</Card.Title>
+                              <Card.Title>Dr.{item.name}</Card.Title>
                               <Card.Text className='mt-3'>Field : {item.field}</Card.Text>
                               <Card.Text>Location : {item.location}</Card.Text>
                               <Card.Text>Consulting Time : {item.consultingTime}</Card.Text>
@@ -106,7 +109,7 @@ function ViewDoctor() {
                               </div>
                               <Card.Text>------------------------------------</Card.Text>
                               <div className='d-flex justify-content-between'>
-                                <button className='btn'><i className="fa-solid fa-pen-to-square fa-xl" style={{ color: "#0011ff", }} /></button>
+                                <EditDoctor doctor={item}/>
                                 <button className='btn' onClick={()=>{deleteDoctor(item._id)}}><i className="fa-solid fa-trash fa-xl" style={{ color: "#ff0000", }} /></button>
                               </div>
 
@@ -117,7 +120,9 @@ function ViewDoctor() {
                     }
                   </div>
                   :
-                  <h1 className='text-light mt-5 text-center'>Currently No Doctors Are Available!!</h1>
+                  <h1 className='text-light mt-5 text-center'>Currently Other Doctors Are Not Available!! <br></br>
+                    <span style={{fontSize:'20px',color:'white'}}>You can <b>Add Doctors</b> Throuh Admin Panel in the Footer !!</span>
+                  </h1>
               }
             </div>
 
