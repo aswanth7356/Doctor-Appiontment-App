@@ -77,9 +77,9 @@ function ViewDoctor() {
                   <Card style={{ width: '18rem' }} className='border border-3 border-light shadow bg-light rounded'>
                     <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg" className='img-fluid' />
                     <Card.Body>
-                      <Card.Title>Name : Anu</Card.Title>
-                      <Card.Text className='mt-3'>Field : mbbs</Card.Text>
-                      <Card.Text>Location : calicut</Card.Text>
+                      <Card.Title>Dr. Anu</Card.Title>
+                      <Card.Text className='mt-3'>Hospital : Medical College</Card.Text>
+                      <Card.Text>Location : Calicut</Card.Text>
                       <Card.Text>Consulting Time : 1pm to 3pm</Card.Text>
                       <Link to={'/appointment'} className='btn btn-warning border rounded'>Book An Appointment</Link>
                     </Card.Body>
@@ -101,7 +101,7 @@ function ViewDoctor() {
                             <Card.Img variant="top" src={`${base_url}/upload/${item.picture}`} className='img-fluid' style={{ height: '30vh' }} />
                             <Card.Body>
                               <Card.Title>Dr.{item.name}</Card.Title>
-                              <Card.Text className='mt-3'>Field : {item.field}</Card.Text>
+                              <Card.Text className='mt-3'>Hospital : {item.field}</Card.Text>
                               <Card.Text>Location : {item.location}</Card.Text>
                               <Card.Text>Consulting Time : {item.consultingTime}</Card.Text>
                               <div className='text-center'>

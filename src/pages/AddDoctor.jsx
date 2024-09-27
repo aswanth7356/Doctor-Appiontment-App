@@ -72,7 +72,7 @@ function AddDoctor() {
         navigate('/viewDoctor')
       }
       else{
-        toast.error("Doctor Adding Failed")
+        toast.error("Doctor Adding Failed ..Already available doctor in this time")
       }
     }
   }
@@ -110,8 +110,8 @@ function AddDoctor() {
                     </FloatingLabel>
 
                     <FloatingLabel
-                      controlId="floatingField" label="Field" className="mb-3" >
-                      <Form.Control type="text" placeholder="Field" onChange={(e) => { setDoctorData({ ...doctorData, field: e.target.value }) }} />
+                      controlId="floatingField" label="Hospital" className="mb-3" >
+                      <Form.Control type="text" placeholder="Hospital Name" onChange={(e) => { setDoctorData({ ...doctorData, field: e.target.value }) }} />
                     </FloatingLabel>
 
 

@@ -14,9 +14,9 @@ function Admin() {
                 <Link className="btn border rounded w-25" style={{background:'black',color:'yellow'}} to={'/addDoctor'}> + Add Doctors</Link>
               </div>
 
-              <div className="col">
+              {/* <div className="col">
                 <Link className="btn border rounded mt-5 w-25" style={{background:'black',color:'yellow'}} to={'/addDepartment'}> + Add Department</Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

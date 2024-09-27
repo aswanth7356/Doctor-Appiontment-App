@@ -21,7 +21,7 @@ function Appointment() {
     const handleSubmit=async()=>{
         const {firstName,lastName,email,phone,place,date}=bookingData
         if(!firstName || !lastName || !email || !phone || !place || !date){
-            toast.warning("Please Fill Valid data...")
+            toast.warning("Please Fill Form With Valid data...")
         }
         else{
             const result=await BookingApi(bookingData)

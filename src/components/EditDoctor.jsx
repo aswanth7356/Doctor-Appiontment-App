@@ -131,7 +131,7 @@ function EditDoctor({ doctor }) {
                                         <Form.Control type="text" placeholder="name@example.com" value={doctorData?.name} onChange={(e) => { setDoctorData({ ...doctorData, name: e.target.value }) }} />
                                     </FloatingLabel>
 
-                                    <FloatingLabel controlId="floatingField" label="Field" className="mb-3">
+                                    <FloatingLabel controlId="floatingHospital" label="Hospital" className="mb-3">
                                         <Form.Control type="text" placeholder="name@example.com" value={doctorData?.field} onChange={(e) => { setDoctorData({ ...doctorData, field: e.target.value }) }} />
                                     </FloatingLabel>
 
