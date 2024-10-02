@@ -25,7 +25,7 @@ function Appointment() {
         }
         else{
             const result=await BookingApi(bookingData)
-            console.log(result);
+            // console.log(result);
             if(result.status==201){
                 toast.success("Successfully Booked!!")
                 setBookingData({

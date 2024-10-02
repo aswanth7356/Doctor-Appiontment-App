@@ -7,6 +7,7 @@ import base_url from '../services/base_url';
 import { toast } from 'react-toastify';
 import EditDoctor from '../components/EditDoctor';
 import { editResponseContext } from '../contextApi/ContextShare';
+import Header from '../components/Header';
 
 
 function ViewDoctor() {
@@ -57,7 +58,8 @@ function ViewDoctor() {
 
   return (
     <>
-      <div style={{ background: 'linear-gradient(90deg, #d53369 0%, #daae51 100%)' }}>
+    <Header/>
+      <div>
 
         <div className="container-fluid row p-5" style={{ height: '100%' }}>
           <div className="col">
