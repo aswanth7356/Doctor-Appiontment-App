@@ -29,9 +29,9 @@ function Home() {
       <Header />
 
 
-      <div style={{ background: '#040744', height:'200vh'}} >
-        <div className='container'>
-          <div className="row d-flex justify-content-center text-align-center " >
+      <div style={{ background: '#040744', height:'100%'}} >
+        <div className='container' >
+          <div className="row d-flex justify-content-center text-align-center ">
             <h1 className='first-head text-white text-center' style={{ marginTop: '5rem' }}>BOOK AND MEET A DOCTOR</h1>
             <p className='text-white text-center'>India's best online appointment scheduling platform</p>
           </div>
@@ -61,8 +61,7 @@ function Home() {
 
 
         <div className='container'>
-
-          <div className="row mt-5 shadow mb-5 rounded d-flex align-items-center">
+          <div className="row mt-5 shadow rounded d-flex align-items-center">
             <div className="col-md-4 ">
               <Card style={{ width: '22rem', height: '36rem', padding: '50px', background: '#262840', color: '#fff' }}>
                 <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVc55Zb6Hb_BK_977uHVCygwCvteZ6PRTVIQ&s" width='100%' />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useContext} from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import Footer from '../components/Footer';
@@ -13,7 +13,7 @@ import Header from '../components/Header';
 function ViewDoctor() {
 
   const [userDoctor, setUserDoctor] = useState([])
-  const [editResponse,setEditResponse]=useContext(editResponseContext)  
+  const [editResponse, setEditResponse] = useContext(editResponseContext)
 
   useEffect(() => {
     if (sessionStorage.getItem('token')) {
@@ -44,12 +44,12 @@ function ViewDoctor() {
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     }
     const result = await deleteDoctorApi(id, header)
-    if(result.status==200){
+    if (result.status == 200) {
       alert("Are You Sure Want To Delete!!")
       toast.success("Doctor Deleted!!")
       getData()
     }
-    else{
+    else {
       console.log(res);
       toast.error("Deletion Failed!!")
     }
@@ -58,79 +58,190 @@ function ViewDoctor() {
 
   return (
     <>
-    <Header/>
-      <div>
-
-        <div className="container-fluid row p-5" style={{ height: '100%' }}>
-          <div className="col">
-            <h1 className='text-white'>AVAILABLE DOCTORS</h1>
-
-            {/* <div className="mt-4 d-flex justify-content-between">
-              <div className="d-flex">
-
-              </div>
-              <Link className="btn btn-success" to={'/addDoctor'}> + Add Doctors</Link>
-            </div> */}
+      <Header />
 
 
-            <div>
-              <div className="row mt-5">
-                <div className="col-mt-5">
-                  <Card style={{ width: '18rem' }} className='border border-3 border-light shadow bg-light rounded'>
-                    <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg" className='img-fluid' />
-                    <Card.Body>
-                      <Card.Title>Dr. Anu</Card.Title>
-                      <Card.Text className='mt-3'>Hospital : Medical College</Card.Text>
-                      <Card.Text>Location : Calicut</Card.Text>
-                      <Card.Text>Consulting Time : 1pm to 3pm</Card.Text>
-                      <Link to={'/appointment'} className='btn btn-warning border rounded'>Book An Appointment</Link>
-                    </Card.Body>
-                  </Card>
+      <header className="bg-dark py-5">
+        <div className="container px-4 px-lg-5 my-5">
+          <div className="text-center text-white">
+            <h1 className="display-4 fw-bolder">Available Doctors</h1>
+            <p className="lead fw-normal text-white-50 mb-0">
+              "Book an appointment at the nearest hospital."
+            </p>
+          </div>
+        </div>
+      </header>
+
+      {/* Dummy Section*/}
+      <section className="py-5">
+        <div className="container px-4 px-lg-5 mt-5">
+          <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
+
+            <div className="col mb-5">
+              <div className="card h-100 border shadow">
+                {/* doctor image */}
+                <img
+                  className="card-img-top img-fluid"
+                  src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg"
+                  alt="Doctor Profile"
+                />
+                {/* doctor details */}
+                <div className="card-body p-4">
+                  <div className="text-center">
+                    {/* doctor name */}
+                    <h5 className="fw-bolder">Dr. Anu</h5>
+                    <p className="fw-bolder">Hospital: KMCT</p>
+                    <p>Location: Calicut</p>
+                    {/* consulting time */}
+                    <span>Consulting Time: 3pm to 6pm</span>
+                  </div>
+                </div>
+                {/* book appointment actions */}
+                <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="text-center">
+                    <Link to={'/appointment'} className="btn btn-outline-warning mt-auto text-dark">
+                      Book An Appointment
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
-
-
-            <div>
-              {
-                userDoctor.length > 0 ?
-                  <div className='row'>
-                    {
-                      userDoctor.map((item) => (
-                        <div className='col mt-5'>
-                          <Card style={{ width: '18rem' }} className='border border-3 border-light shadow bg-light rounded'>
-                            <Card.Img variant="top" src={`${base_url}/upload/${item.picture}`} className='img-fluid' style={{ height: '30vh' }} />
-                            <Card.Body>
-                              <Card.Title>Dr.{item.name}</Card.Title>
-                              <Card.Text className='mt-3'>Hospital : {item.field}</Card.Text>
-                              <Card.Text>Location : {item.location}</Card.Text>
-                              <Card.Text>Consulting Time : {item.consultingTime}</Card.Text>
-                              <div className='text-center'>
-                                <Link to={'/appointment'} className='btn btn-warning border rounded'>Book An Appointment</Link>
-                              </div>
-                              <Card.Text>------------------------------------</Card.Text>
-                              <div className='d-flex justify-content-between'>
-                                <EditDoctor doctor={item}/>
-                                <button className='btn' onClick={()=>{deleteDoctor(item._id)}}><i className="fa-solid fa-trash fa-xl" style={{ color: "#ff0000", }} /></button>
-                              </div>
-
-                            </Card.Body>
-                          </Card>
-                        </div>
-                      ))
-                    }
+            {/* Repeat the same block for other doctors */}
+            <div className="col mb-5">
+              <div className="card h-100 border shadow">
+                <img
+                  className="card-img-top img-fluid"
+                  src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg"
+                  alt="Doctor Profile"
+                />
+                <div className="card-body p-4">
+                  <div className="text-center">
+                    <h5 className="fw-bolder">Dr. Smitha</h5>
+                    <p className="fw-bolder">Hospital: StarCare</p>
+                    <p>Location: Thrissur</p>
+                    <span>Consulting Time: 4pm to 7pm</span>
                   </div>
-                  :
-                  <h1 className='text-light mt-5 text-center'>Currently Other Doctors Are Not Available!! <br></br>
-                    <span style={{fontSize:'20px',color:'white'}}>You can <b>Add Doctors</b> Throuh Admin Panel in the Footer !!</span>
-                  </h1>
-              }
+                </div>
+                <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="text-center">
+                    <Link to={'/appointment'} className="btn btn-outline-warning mt-auto text-dark">
+                      Book An Appointment
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div className="col mb-5">
+              <div className="card h-100 border shadow">
+                <img
+                  className="card-img-top img-fluid"
+                  src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg"
+                  alt="Doctor Profile"
+                />
+                <div className="card-body p-4">
+                  <div className="text-center">
+                    <h5 className="fw-bolder">Dr. Veena</h5>
+                    <p className="fw-bolder">Hospital: IQRA</p>
+                    <p>Location: Calicut</p>
+                    <span>Consulting Time: 5pm to 8pm</span>
+                  </div>
+                </div>
+                <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="text-center">
+                    <Link to={'/appointment'} className="btn btn-outline-warning mt-auto text-dark">
+                      Book An Appointment
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col mb-5">
+              <div className="card h-100 border shadow">
+                <img
+                  className="card-img-top img-fluid"
+                  src="https://thumbs.dreamstime.com/b/medical-doctor-profile-icon-female-doctor-avatar-medical-doctor-profile-icon-female-doctor-avatar-vector-illustration-stock-312057728.jpg"
+                  alt="Doctor Profile"
+                />
+                <div className="card-body p-4">
+                  <div className="text-center">
+                    <h5 className="fw-bolder">Dr. Gita</h5>
+                    <p className="fw-bolder">Hospital: GH</p>
+                    <p>Location: Idukki</p>
+                    <span>Consulting Time: 6pm to 9pm</span>
+                  </div>
+                </div>
+                <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="text-center">
+                    <Link to={'/appointment'} className="btn btn-outline-warning mt-auto text-dark">
+                      Book An Appointment
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* You can add more doctor cards here */}
 
           </div>
         </div>
-      </div>
+      </section>
+
+
+
+
+      <section className="py-5">
+        <div className="container px-4 px-lg-5">
+          <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center">
+            {userDoctor.length > 0 ? (
+              userDoctor.map((item) => (
+                <div className="col mb-5" key={item._id}>
+                  <div className="card h-100 border shadow">
+                    {/* Doctor image */}
+                    <img
+                      className="card-img-top img-fluid"
+                      src={`${base_url}/upload/${item.picture}`}
+                      alt="Doctor"
+                    />
+                    {/* Doctor details */}
+                    <div className="card-body p-4">
+                      <div className="text-center">
+                        <h5 className="fw-bolder">Dr. {item.name}</h5>
+                        <p className="fw-bolder">Hospital: {item.field}</p>
+                        <p>Location: {item.location}</p>
+                        <span>Consulting Time: {item.consultingTime}</span>
+                      </div>
+                    </div>
+                    {/* Book appointment actions */}
+                    <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div className="text-center">
+                        <Link to={'/appointment'} className="btn btn-outline-warning mt-auto text-dark">
+                          Book An Appointment
+                        </Link>
+                      </div>
+                    </div>
+                    {/* Edit and Delete buttons */}
+                    <div className="d-flex justify-content-between p-3">
+                      <EditDoctor doctor={item} />
+                      <button className="btn" onClick={() => deleteDoctor(item._id)}>
+                        <i
+                          className="fa-solid fa-trash fa-xl"
+                          style={{ color: "#ff0000" }}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <h2 className="text-center text-dark my-4">Other Doctors Are Not Available!!</h2>
+            )}
+          </div>
+        </div>
+      </section>
+
 
       <Footer />
     </>
