@@ -4,6 +4,7 @@ Madicare is a full-stack web application built using the MERN stack, designed to
 Features
 
   User Features
+  
     * Responsive Design: Built with React and Bootstrap for seamless use across devices.
     * Easy Appointment Booking: Patients can book appointments without visiting hospitals.
     * JWT Authentication: Secure login and signup for users.
